@@ -23,16 +23,29 @@
 
 ## 文档
 
-| 文档 | 内容 |
+> **目录结构：每个候选方向一个独立目录**，各自存放该方向的方案 / 架构 / 演示脚本。
+> ⚠️ 现有**三个候选方向并列评估中**，除 BoostForge 外均**未冻结**。
+
+| 方向 | 目录 | 状态 |
+|---|---|---|
+| **爆量工场 BoostForge** | [`docs/boostforge/`](docs/boostforge/) | ✅ 已确定方向（⏳ 待验证） |
+| **明径 PathWise** | [`docs/pathwise/`](docs/pathwise/) | ⏳ 候选 · 评估中 |
+| **通途 ClearWay** | [`docs/clearway/`](docs/clearway/) | ⏳ 候选 · 评估中 |
+| **方向决策记录** | [`docs/DECISION-RECORD.md`](docs/DECISION-RECORD.md) | 评估矩阵 · 选型理由 · **验证清单** |
+
+### 各方向目录内容
+
+| 目录 | 文件 |
 |---|---|
-| [`docs/EXECUTION-PLAN-BOOSTFORGE.md`](docs/EXECUTION-PLAN-BOOSTFORGE.md) | **主方案**：产品定义、七工位流水线、评测体系、团队分工、里程碑、风险 |
-| [`docs/EXECUTION-PLAN-PATHWISE.md`](docs/EXECUTION-PLAN-PATHWISE.md) | **候选方案（评估中）**：高校学业-综测路径规划智能体，八工位流水线、学期回流闭环、与主方案的逐项对比 |
-| [`docs/DECISION-RECORD.md`](docs/DECISION-RECORD.md) | **方向决策记录**：15 个候选方向的评估矩阵、选型理由、**验证清单** |
+| [`docs/boostforge/`](docs/boostforge/) | `EXECUTION-PLAN.md` — 短剧投流素材工厂 |
+| [`docs/pathwise/`](docs/pathwise/) | `EXECUTION-PLAN.md` — 高校学业-综测路径规划 |
+| [`docs/clearway/`](docs/clearway/) | `EXECUTION-PLAN.md`（方案）· [`ARCHITECTURE.md`](docs/clearway/ARCHITECTURE.md)（智能体角色架构）· [`DEMO-SCRIPT.md`](docs/clearway/DEMO-SCRIPT.md)（演示脚本） |
 
 ### 建议阅读顺序
 
-1. 先看 `DECISION-RECORD.md` 第二节「决策标准」和第六节「验证清单」——理解**为什么是这个方向**，以及**当前卡在哪**
-2. 再看 `EXECUTION-PLAN-BOOSTFORGE.md` 第一、二、四节——理解**产品是什么**，以及**为什么它是智能体而不是工作流**
+1. 先看 [`docs/DECISION-RECORD.md`](docs/DECISION-RECORD.md) 第二节「决策标准」和第六节「验证清单」——理解**决策标准是什么**，以及**当前卡在哪**
+2. 再看 [`docs/boostforge/EXECUTION-PLAN.md`](docs/boostforge/EXECUTION-PLAN.md) 第一、二、四节——理解**已确定方向是什么**，以及**为什么它是智能体而不是工作流**
+3. 若在考虑换方向：看 [`docs/clearway/EXECUTION-PLAN.md`](docs/clearway/EXECUTION-PLAN.md) **第十二节「三方向对比矩阵」** —— 三个方向的逐项对比与建议
 
 ---
 
