@@ -26,6 +26,7 @@
 | 文档 | 内容 |
 |---|---|
 | [`docs/EXECUTION-PLAN-BOOSTFORGE.md`](docs/EXECUTION-PLAN-BOOSTFORGE.md) | **主方案**：产品定义、七工位流水线、评测体系、团队分工、里程碑、风险 |
+| [`docs/EXECUTION-PLAN-PATHWISE.md`](docs/EXECUTION-PLAN-PATHWISE.md) | **候选方案（评估中）**：高校学业-综测路径规划智能体，八工位流水线、学期回流闭环、与主方案的逐项对比 |
 | [`docs/DECISION-RECORD.md`](docs/DECISION-RECORD.md) | **方向决策记录**：15 个候选方向的评估矩阵、选型理由、**验证清单** |
 
 ### 建议阅读顺序
@@ -53,6 +54,7 @@
 | 方向选型 | ✅ 已确定（BoostForge） |
 | 可行性验证 | ⏳ **待执行** |
 | 方案冻结 | ⏳ 待验证通过 |
+| 新增候选方向 | ⏳ **评估中**（明径 PathWise，见决策记录第六节） |
 
 ### ★ 下一步：三项验证（本周可完成）
 
