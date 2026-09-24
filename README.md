@@ -31,7 +31,7 @@
 | **爆量工场 BoostForge** | [`docs/boostforge/`](docs/boostforge/) | ✅ 已确定方向（⏳ 待验证） |
 | **明径 PathWise** | [`docs/pathwise/`](docs/pathwise/) | ⏳ 候选 · 评估中 |
 | **通途 ClearWay** | [`docs/clearway/`](docs/clearway/) | ⏳ 候选 · 评估中 |
-| **方向决策记录** | [`docs/DECISION-RECORD.md`](docs/DECISION-RECORD.md) | 评估矩阵 · 选型理由 · **验证清单** |
+| **方向决策记录** | [`docs/DECISION-RECORD.md`](docs/DECISION-RECORD.md) | 评估矩阵 · 选型理由 · **验证清单** · **附录 A：三方向可行性评估** |
 
 ### 各方向目录内容
 
