@@ -1,4 +1,4 @@
-# 通途 ClearWay · 现场演示脚本
+# 通衢 RoadMind · 现场演示脚本
 
 > 配套文档：`EXECUTION-PLAN.md`（方案）｜ `ARCHITECTURE.md`（智能体架构）
 > 目标时长：**5 分钟**（比赛演示视频 + 现场路演同一套脚本）

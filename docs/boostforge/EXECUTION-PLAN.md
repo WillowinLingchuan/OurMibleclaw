@@ -291,4 +291,4 @@ P1 投流策略 + 报告 + 答辩 ── 全程并行
 
 *方案版本 v0.1 ｜ 基于 MoMA 公开能力与 2026-09 赛事信息整理*
 *配套文档：[`../DECISION-RECORD.md`](../DECISION-RECORD.md)（方向决策记录与验证清单）*
-*候选方案：[`../pathwise/EXECUTION-PLAN.md`](../pathwise/EXECUTION-PLAN.md)（高校学业-综测规划）、[`../clearway/EXECUTION-PLAN.md`](../clearway/EXECUTION-PLAN.md)（交通疏通与出行决策）*
+*候选方案：[`../pathpilot/EXECUTION-PLAN.md`](../pathpilot/EXECUTION-PLAN.md)（高校学业-综测规划）、[`../roadmind/EXECUTION-PLAN.md`](../roadmind/EXECUTION-PLAN.md)（交通疏通与出行决策）*

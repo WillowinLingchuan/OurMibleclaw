@@ -1,4 +1,4 @@
-# 通途 ClearWay · 智能体角色架构
+# 通衢 RoadMind · 智能体角色架构
 
 > 配套文档：`EXECUTION-PLAN.md` ｜ 演示脚本：`DEMO-SCRIPT.md`
 > 本文是架构图的**文字描述**与每个 Agent 的完整设计规格。
