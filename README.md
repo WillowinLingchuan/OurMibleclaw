@@ -11,9 +11,9 @@
 
 | 方向 | 一句话 | 状态 |
 |---|---|---|
-| **爆量工场 BoostForge** | 面向短剧投流团队的 **AI 素材工厂与投放策略优化智能体** | ✅ 原定方向（⏳ 待验证） |
-| **知途 PathPilot** | 面向高校学生的 **学业与综测双目标路径规划智能体** | ⏳ 候选 · 评估中 |
-| **通衢 RoadMind** | **交通全域智能疏通与出行决策多智能体系统** | ⏳ 候选 · 评估中 |
+| **短剧投流素材智能体 BoostForge** | 从一集成片批量产出投流素材，**并随投放回流越做越准** | ✅ 原定方向（⏳ 待验证） |
+| **学业综测规划智能体 PathPilot** | 把培养方案 + 综测细则变成每个学生的**跨学期最优路径** | ⏳ 候选 · 评估中 |
+| **交通疏通决策智能体 RoadMind** | **交通全域智能疏通与出行决策多智能体系统** | ⏳ 候选 · 评估中 |
 
 ### 贯穿三个方向的决策标准
 
@@ -38,9 +38,9 @@
 
 | 方向 | 目录 | 状态 |
 |---|---|---|
-| **爆量工场 BoostForge** | [`docs/boostforge/`](docs/boostforge/) | ✅ 已确定方向（⏳ 待验证） |
-| **知途 PathPilot** | [`docs/pathpilot/`](docs/pathpilot/) | ⏳ 候选 · 评估中 |
-| **通衢 RoadMind** | [`docs/roadmind/`](docs/roadmind/) | ⏳ 候选 · 评估中 |
+| **短剧投流素材智能体 BoostForge** | [`docs/boostforge/`](docs/boostforge/) | ✅ 已确定方向（⏳ 待验证） |
+| **学业综测规划智能体 PathPilot** | [`docs/pathpilot/`](docs/pathpilot/) | ⏳ 候选 · 评估中 |
+| **交通疏通决策智能体 RoadMind** | [`docs/roadmind/`](docs/roadmind/) | ⏳ 候选 · 评估中 |
 | **方向决策记录** | [`docs/DECISION-RECORD.md`](docs/DECISION-RECORD.md) | 评估矩阵 · 选型理由 · **验证清单** · **附录 A：三方向可行性评估** |
 
 ### 各方向目录内容
