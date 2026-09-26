@@ -3,6 +3,12 @@
 > 配套文档：[`EXECUTION-PLAN.md`](EXECUTION-PLAN.md)（方案）｜ [`TEAM-ROLES.md`](TEAM-ROLES.md)（分工与排期）｜ [`JUDGMENT-DATA.md`](JUDGMENT-DATA.md)（裁判文书接入）｜ [`DEMO-SCRIPT.md`](DEMO-SCRIPT.md)（演示脚本）
 > 本文是架构图的**文字描述**与每个 Agent 的完整设计规格。
 
+> ### ⏱ 11 天冲刺版的范围（详见 [`TEAM-ROLES.md`](TEAM-ROLES.md) 第二节）
+> 本文写的是**完整设计**。11 天内**只做**：A1 / A2 / **A4**，外加编排、法条检索、条款 ID 白名单。
+> **降级**：A3 从独立 Agent + 对抗回边 → **一次「自查」调用**。
+> **暂缓**：追问规划器、视觉通道、缺口回退边、护栏的另外两条。
+> **无论怎么砍，A4 不动** —— 它是全案唯一「会改主意」的地方。
+
 ---
 
 ## 一、总体架构：四层
