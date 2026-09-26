@@ -11,9 +11,9 @@
 
 | 方向 | 一句话 | 状态 |
 |---|---|---|
-| **短剧投流素材智能体 BoostForge** | 从一集成片批量产出投流素材，**并随投放回流越做越准** | ✅ 原定方向（⏳ 待验证） |
+| **短剧投流素材智能体 BoostForge** | 从一集成片批量产出投流素材，**并随投放回流越做越准** | ✅ 已确定方向（⏳ 待验证） |
 | **学业综测规划智能体 PathPilot** | 把培养方案 + 综测细则变成每个学生的**跨学期最优路径** | ⏳ 候选 · 评估中 |
-| **交通疏通决策智能体 RoadMind** | **交通全域智能疏通与出行决策多智能体系统** | ⏳ 候选 · 评估中 |
+| **交通事故辅助研判智能体 RoadMind** | 把散落的案卷材料，排成交警判责时要翻的那份清单，**并随办结文书回流越排越准** | ⏳ 候选 · 评估中 |
 
 ### 贯穿三个方向的决策标准
 
@@ -40,7 +40,7 @@
 |---|---|---|
 | **短剧投流素材智能体 BoostForge** | [`docs/boostforge/`](docs/boostforge/) | ✅ 已确定方向（⏳ 待验证） |
 | **学业综测规划智能体 PathPilot** | [`docs/pathpilot/`](docs/pathpilot/) | ⏳ 候选 · 评估中 |
-| **交通疏通决策智能体 RoadMind** | [`docs/roadmind/`](docs/roadmind/) | ⏳ 候选 · 评估中 |
+| **交通事故辅助研判智能体 RoadMind** | [`docs/roadmind/`](docs/roadmind/) | ⏳ 候选 · 评估中 |
 | **方向决策记录** | [`docs/DECISION-RECORD.md`](docs/DECISION-RECORD.md) | 评估矩阵 · 选型理由 · **验证清单** · **附录 A：三方向可行性评估** |
 
 ### 各方向目录内容
@@ -49,13 +49,13 @@
 |---|---|
 | [`docs/boostforge/`](docs/boostforge/) | `EXECUTION-PLAN.md` — 短剧投流素材工厂 |
 | [`docs/pathpilot/`](docs/pathpilot/) | `EXECUTION-PLAN.md` — 高校学业-综测路径规划 |
-| [`docs/roadmind/`](docs/roadmind/) | `EXECUTION-PLAN.md`（方案 · 做什么）· [`TEAM-ROLES.md`](docs/roadmind/TEAM-ROLES.md)（**分工与排期 · 谁做**）· [`ARCHITECTURE.md`](docs/roadmind/ARCHITECTURE.md)（智能体角色架构）· [`SUMO-INTEGRATION.md`](docs/roadmind/SUMO-INTEGRATION.md)（**SUMO 接入方案 · 闭环落地**）· [`DEMO-SCRIPT.md`](docs/roadmind/DEMO-SCRIPT.md)（演示脚本） |
+| [`docs/roadmind/`](docs/roadmind/) | `EXECUTION-PLAN.md`（方案 · 做什么）· [`TEAM-ROLES.md`](docs/roadmind/TEAM-ROLES.md)（**分工与排期 · 谁做**）· [`ARCHITECTURE.md`](docs/roadmind/ARCHITECTURE.md)（智能体角色架构）· [`JUDGMENT-DATA.md`](docs/roadmind/JUDGMENT-DATA.md)（**公开裁判文书接入 · 闭环落地**）· [`DEMO-SCRIPT.md`](docs/roadmind/DEMO-SCRIPT.md)（演示脚本） |
 
 ### 建议阅读顺序
 
 1. 先看 [`docs/DECISION-RECORD.md`](docs/DECISION-RECORD.md) 第二节「决策标准」和第六节「验证清单」——理解**决策标准是什么**，以及**当前卡在哪**
 2. 再看 [`docs/boostforge/EXECUTION-PLAN.md`](docs/boostforge/EXECUTION-PLAN.md) 第一、二、四节——理解**已确定方向是什么**，以及**为什么它是智能体而不是工作流**
-3. 若在考虑换方向：看 [`docs/roadmind/EXECUTION-PLAN.md`](docs/roadmind/EXECUTION-PLAN.md) **第十二节「三方向对比矩阵」** —— 三个方向的逐项对比与建议
+3. 若在考虑换方向：看 [`docs/roadmind/EXECUTION-PLAN.md`](docs/roadmind/EXECUTION-PLAN.md) **第十三节「三方向对比矩阵」** —— 三个方向的逐项对比与建议
 
 ---
 
@@ -74,7 +74,7 @@
 |---|---|---|
 | **BoostForge** | 拿不到投放数据 ／ Token 配额不覆盖视频模型 | ❌ 不致命（砍模块，作品仍成立） |
 | **PathPilot** | 赛道挂靠被拒 | **★ 一票否决（跑题）** |
-| **RoadMind** | 撞题（智能交通是 AI 比赛红海） | ❌ 不致命，但得分天花板被锁死 |
+| **RoadMind** | 撞题（**"事故责任认定"比"交通疏通"更常见于论文与比赛**）／**闭环是唯一一条腿** | ❌ 不致命，但**闭环失败则"能交付、不能赢"** |
 
 ---
 
@@ -89,7 +89,7 @@
 | **P3 · 算法 / 核心智能** | 技术命门（各方向不同）、评测体系 |
 | **P4 · 前端 / 全栈** | 可视化、产品界面、上架材料 |
 
-> ⚠️ **各方向 P1 的技能要求差别很大** —— BoostForge 需要外部补课「投流业务」；PathPilot 与 RoadMind 的领域知识更接近团队自身经验。
+> ⚠️ **各方向 P1 的技能要求差别很大** —— BoostForge 需要外部补课「投流业务」；PathPilot 的领域知识更接近团队自身经验；RoadMind 需补**交规与司法文书体例**，且 P1 的第一件事是**定「什么算一条要件」的切分标准**。
 
 ---
 

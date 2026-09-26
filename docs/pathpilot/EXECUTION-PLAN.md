@@ -2,7 +2,7 @@
 
 > 校园学业与综测路径规划智能体 —— 把学校制度文本变成每个学生的可执行路径，并让这条路越走越准
 > 面向：第五届「移动云杯」智算应用创新大赛 · **模型应用赛**（挂靠 **智能协同办公** 场景） ｜ 基于 MoMA 平台 ｜ 团队 4 人
-> 状态：**候选方向 · 待验证**（三选一，与 [短剧投流素材智能体 BoostForge](../boostforge/EXECUTION-PLAN.md)、[交通疏通决策智能体 RoadMind](../roadmind/EXECUTION-PLAN.md) 并列评估）
+> 状态：**候选方向 · 待验证**（三选一，与 [短剧投流素材智能体 BoostForge](../boostforge/EXECUTION-PLAN.md)、[交通事故辅助研判智能体 RoadMind](../roadmind/EXECUTION-PLAN.md) 并列评估）
 
 ---
 
