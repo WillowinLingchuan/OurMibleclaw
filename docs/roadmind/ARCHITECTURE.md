@@ -259,4 +259,4 @@
 
 ---
 
-*本文档版本 v0.1 ｜ 配套：`EXECUTION-PLAN.md`（方案）、`DEMO-SCRIPT.md`（演示脚本）*
+*本文档版本 v0.1 ｜ 配套：[`EXECUTION-PLAN.md`](EXECUTION-PLAN.md)（方案）、[`TEAM-ROLES.md`](TEAM-ROLES.md)（分工与排期）、[`DEMO-SCRIPT.md`](DEMO-SCRIPT.md)（演示脚本）*

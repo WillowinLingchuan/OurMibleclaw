@@ -119,4 +119,4 @@
 
 ---
 
-*本文档版本 v0.1 ｜ 配套：`EXECUTION-PLAN.md`（方案）、`ARCHITECTURE.md`（智能体架构）*
+*本文档版本 v0.1 ｜ 配套：[`EXECUTION-PLAN.md`](EXECUTION-PLAN.md)（方案）、[`ARCHITECTURE.md`](ARCHITECTURE.md)（智能体架构）、[`TEAM-ROLES.md`](TEAM-ROLES.md)（分工与排期）*

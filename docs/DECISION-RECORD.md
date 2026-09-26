@@ -188,7 +188,7 @@
 ## 八、候选方向（新增 · 评估中）：交通疏通决策智能体 RoadMind
 
 > **2026-09-24 新增。不影响第九节「已确定 BoostForge」的状态**，本方向独立评估中。
-> 完整方案见 [`docs/roadmind/EXECUTION-PLAN.md`](roadmind/EXECUTION-PLAN.md)，另含[智能体角色架构](roadmind/ARCHITECTURE.md)与[演示脚本](roadmind/DEMO-SCRIPT.md)。
+> 完整方案见 [`docs/roadmind/EXECUTION-PLAN.md`](roadmind/EXECUTION-PLAN.md)，另含[分工与排期](roadmind/TEAM-ROLES.md)、[智能体角色架构](roadmind/ARCHITECTURE.md)与[演示脚本](roadmind/DEMO-SCRIPT.md)。
 
 ### 方向
 

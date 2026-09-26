@@ -49,7 +49,7 @@
 |---|---|
 | [`docs/boostforge/`](docs/boostforge/) | `EXECUTION-PLAN.md` — 短剧投流素材工厂 |
 | [`docs/pathpilot/`](docs/pathpilot/) | `EXECUTION-PLAN.md` — 高校学业-综测路径规划 |
-| [`docs/roadmind/`](docs/roadmind/) | `EXECUTION-PLAN.md`（方案）· [`ARCHITECTURE.md`](docs/roadmind/ARCHITECTURE.md)（智能体角色架构）· [`SUMO-INTEGRATION.md`](docs/roadmind/SUMO-INTEGRATION.md)（**SUMO 接入方案 · 闭环落地**）· [`DEMO-SCRIPT.md`](docs/roadmind/DEMO-SCRIPT.md)（演示脚本） |
+| [`docs/roadmind/`](docs/roadmind/) | `EXECUTION-PLAN.md`（方案 · 做什么）· [`TEAM-ROLES.md`](docs/roadmind/TEAM-ROLES.md)（**分工与排期 · 谁做**）· [`ARCHITECTURE.md`](docs/roadmind/ARCHITECTURE.md)（智能体角色架构）· [`SUMO-INTEGRATION.md`](docs/roadmind/SUMO-INTEGRATION.md)（**SUMO 接入方案 · 闭环落地**）· [`DEMO-SCRIPT.md`](docs/roadmind/DEMO-SCRIPT.md)（演示脚本） |
 
 ### 建议阅读顺序
 

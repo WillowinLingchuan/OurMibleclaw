@@ -2,7 +2,7 @@
 
 > 从零到「最小闭环」的可执行步骤 —— 每一步都有可直接运行的命令
 > 面向：**P2（接入与适配）**、**P3（闭环策略）**、**P1（场景业务参数）** ｜ 资料基于 SUMO 官方文档核对整理
-> ℹ️ 人力编号沿用仓库统一口径：**P1 产品业务 / P2 后端架构 / P3 算法 / P4 前端全栈**（见 [`EXECUTION-PLAN.md`](EXECUTION-PLAN.md) 第七节）
+> ℹ️ 人力编号沿用仓库统一口径：**P1 产品业务 / P2 后端架构 / P3 算法 / P4 前端全栈**（见 [`TEAM-ROLES.md`](TEAM-ROLES.md) 第一节）
 > ⚠️ 本文解决的是本方向**唯一的命门**：回流闭环到底能不能跑起来
 
 ---
@@ -41,7 +41,7 @@
 | **E** | 与 Agent 打通 + 可复现验证 | P2 + **P3** | 1 |
 | | **合计** | | **约 6 人天（1 周）** |
 
-> **P2 仍是唯一的大头（约占 4–5 人天）。** 这也是**建议 P2 最先动工**的原因（见 [`EXECUTION-PLAN.md`](EXECUTION-PLAN.md) 第七节铁律 1）。
+> **P2 仍是唯一的大头（约占 4–5 人天）。** 这也是**建议 P2 最先动工**的原因（见 [`TEAM-ROLES.md`](TEAM-ROLES.md) 第七节铁律 1）。
 > **P3 在 D / E 两阶段必须到位**：`agent.decide()` 是「会不会改主意」的全部所在。
 
 ---
@@ -441,7 +441,7 @@ json.dump(history, open("loop_history.json", "w"), ensure_ascii=False, indent=2)
 | **P2 · 后端 / 架构** | 第一章（安装）、第二章前半（路网 + 车流生成）、第三章（TraCI）、**第四章（决策适配层）**、第六章（闭环脚本工程）、第七章验收自测 |
 | **P3 · 算法 / 核心智能** | **第五章（回流指标口径 = 评测指标的定义）**、第六章的 `agent.decide()` —— 把 `history` 变成 `next_rule` 的策略 |
 | **P1 · 产品 + 交通业务** | 第二章后半（3 套预置场景的**业务参数**，对应 [`DEMO-SCRIPT.md`](DEMO-SCRIPT.md) 的三个场景）；答辩话术：*"闭环在 SUMO 仿真器中验证，这是学术界通用工具，不是自制模拟器。"* |
-| **P4 · 前端 / 全栈** | **消费**第六章跑出的对比数据 → 大屏「复盘前后对比视图」（见 [`EXECUTION-PLAN.md`](EXECUTION-PLAN.md) 第七节 P4 交付物 ④） |
+| **P4 · 前端 / 全栈** | **消费**第六章跑出的对比数据 → 大屏「复盘前后对比视图」（见 [`TEAM-ROLES.md`](TEAM-ROLES.md) P4 交付物 ④） |
 
 ### 三套预置场景（对应原构想第七节的三个演示案例）
 
@@ -497,4 +497,4 @@ traci.close()
 ---
 
 *本文基于 SUMO 官方文档核对整理：[TraCI4Traffic Lights](https://sumo.dlr.de/userdoc/Tutorials/TraCI4Traffic_Lights.html)、[Interfacing TraCI from Python](https://sumo.dlr.de/userdoc/TraCI/Interfacing_TraCI_from_Python.html)、[Change Traffic Lights State](https://sumo.dlr.de/userdoc/TraCI/Change_Traffic_Lights_State.html)、[netgenerate](https://sumo.dlr.de/userdoc/netgenerate.html)、[TripInfo Output](https://sumo.dlr.de/userdoc/Simulation/Output/TripInfo.html)、[randomTrips.py](https://sumo.dlr.de/userdoc/Tools/Trip.html)*
-*配套：[`EXECUTION-PLAN.md`](EXECUTION-PLAN.md)（方案）· [`ARCHITECTURE.md`](ARCHITECTURE.md)（智能体角色）· [`DEMO-SCRIPT.md`](DEMO-SCRIPT.md)（演示脚本）*
+*配套：[`EXECUTION-PLAN.md`](EXECUTION-PLAN.md)（方案）· [`TEAM-ROLES.md`](TEAM-ROLES.md)（分工与排期）· [`ARCHITECTURE.md`](ARCHITECTURE.md)（智能体角色）· [`DEMO-SCRIPT.md`](DEMO-SCRIPT.md)（演示脚本）*
