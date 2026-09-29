@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+
+# 依赖 / 数据 / 密钥
+data/
+*.pt
+*.onnx
+.env
+.env.*
+!.env.example
+
+# IDE / 系统
+.idea/
+.vscode/
+.DS_Store
+
+# 运行时产物
+*.log
+node_modules/
+
+# 演示产物
+dist/
+build/

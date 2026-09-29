@@ -12,3 +12,5 @@ opencv-python==4.10.0.84
 numpy==1.26.4
 chromadb==0.5.23
 PyYAML==6.0.2
+# 视频感知（D1：YOLO + ByteTrack）
+supervision>=0.24.0
