@@ -21,14 +21,28 @@ from ultralytics import YOLO
 from app.schemas.models import Scene, SceneEvent, TrajectoryPoint, Vehicle
 
 
-def main(video_path: str, model_name: str, out_dir: str) -> None:
+def main(
+    video_path: str,
+    model_name: str,
+    out_dir: str,
+    conf: float = 0.25,
+    iou: float = 0.5,
+    imgsz: int = 640,
+    frame_step: int = 1,
+    track_activation_threshold: float = 0.25,
+    lost_track_buffer: int = 30,
+) -> None:
     from supervision import ByteTrack, Detections
 
     model = YOLO(model_name)
-    tracker = ByteTrack(track_activation_threshold=0.25, lost_track_buffer=30)
 
     cap = cv2.VideoCapture(video_path)
     fps = cap.get(cv2.CAP_PROP_FPS) or 30.0
+    tracker = ByteTrack(
+        track_activation_threshold=track_activation_threshold,
+        lost_track_buffer=lost_track_buffer,
+        frame_rate=fps,
+    )
     frame_idx = 0
 
     # 轨迹缓存：track_id -> {t: x, y}
@@ -52,7 +66,11 @@ def main(video_path: str, model_name: str, out_dir: str) -> None:
         ok, frame = cap.read()
         if not ok:
             break
-        results = model(frame, verbose=False)[0]
+        # 抽帧处理：每 frame_step 帧处理一次（frame_step=1 全帧）
+        if frame_idx % frame_step != 0:
+            frame_idx += 1
+            continue
+        results = model(frame, conf=conf, iou=iou, imgsz=imgsz, verbose=False)[0]
         det = results.boxes
 
         boxes = det.xyxy.numpy() if det is not None else np.empty((0, 4))
@@ -124,9 +142,27 @@ def main(video_path: str, model_name: str, out_dir: str) -> None:
 
 
 if __name__ == "__main__":
-    ap = argparse.ArgumentParser()
+    ap = argparse.ArgumentParser(description="YOLO + ByteTrack 追踪 demo，输出 scene.json")
     ap.add_argument("--video", required=True, help="行车记录仪视频路径")
     ap.add_argument("--model", default="yolov8n.pt", help="YOLO 权重")
     ap.add_argument("--out", default="./data/outputs", help="输出目录")
+    ap.add_argument("--conf", type=float, default=0.25, help="检测置信度阈值（调重复计数用）")
+    ap.add_argument("--iou", type=float, default=0.5, help="NMS IoU 阈值")
+    ap.add_argument("--imgsz", type=int, default=640, help="检测输入尺寸")
+    ap.add_argument("--frame-step", type=int, default=1, help="抽帧间隔（1=全帧）")
+    ap.add_argument("--track-thresh", type=float, default=0.25,
+                    help="ByteTrack 新建轨迹置信阈值")
+    ap.add_argument("--lost-buffer", type=int, default=30,
+                    help="ByteTrack 丢失目标保留缓冲帧数（遮挡/漏检调大）")
     args = ap.parse_args()
-    main(args.video, args.model, args.out)
+    main(
+        args.video,
+        args.model,
+        args.out,
+        conf=args.conf,
+        iou=args.iou,
+        imgsz=args.imgsz,
+        frame_step=args.frame_step,
+        track_activation_threshold=args.track_thresh,
+        lost_track_buffer=args.lost_buffer,
+    )
