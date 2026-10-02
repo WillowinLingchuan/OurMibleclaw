@@ -145,7 +145,7 @@
 1. 定 `scene.json` 结构（字段见 `TEAM-ROLES.md` §5 初版，细化车辆/事件/场景）。
 2. 本地装好 YOLO（ultralytics）+ ByteTrack，用 1 段公开行车记录仪视频跑出检测框。
 3. 产出《scene JSON Schema v1》。
-4. **交付**：`docs/roadmind/SCENE-SCHEMA.md`
+4. **交付**：`roadmind/backend/docs/SCENE-SCHEMA.md`
 
 ### D2 视频→场景可用
 1. 实现抽帧 + 检测 + 追踪，输出 `scene.json`（车辆轨迹 t/x/y/speed、事件、场景）。

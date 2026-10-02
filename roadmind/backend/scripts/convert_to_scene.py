@@ -1,7 +1,7 @@
 """
 检测 → scene.json 转换脚本（基于 YOLO model.track + ByteTrack）。
 
-作用：把视频检测追踪结果转换为符合 SCENE-SCHEMA（docs/roadmind/SCENE-SCHEMA.md）
+作用：把视频检测追踪结果转换为符合 SCENE-SCHEMA（roadmind/backend/docs/SCENE-SCHEMA.md）
 的 Scene JSON 输出，供责任判定(M3)/应急(M4) 与后端 perception 服务消费。
 
 依赖：ultralytics（自带 bytetrack，无需 supervision）
