@@ -26,7 +26,13 @@ class TaskManager:
     def get(self, task_id: str) -> Optional[TaskInfo]:
         return self._tasks.get(task_id)
 
-    async def run(self, task_info: TaskInfo, input_text: str) -> TaskInfo:
+    async def run(
+        self,
+        task_info: TaskInfo,
+        input_text: str,
+        scene: dict | None = None,
+        media_path: str | None = None,
+    ) -> TaskInfo:
         """在事件循环后台执行多智能体流水线。"""
         async def _work():
             try:
@@ -35,6 +41,8 @@ class TaskManager:
                 state: State = {
                     "case_id": task_info.task_id,
                     "input_text": input_text,
+                    "input_scene": scene,
+                    "media_path": media_path,
                     "step": "pending",
                 }
                 final_state = await graph.ainvoke(state)

@@ -13,10 +13,12 @@ from pydantic import BaseModel, Field
 
 # ---------- 输入 ----------
 class CaseInput(BaseModel):
-    """案件输入：三种方式（视频 / 照片 / 文字描述）至少提供一种。"""
+    """案件输入：三种方式（scene 字典 / 媒体文件 / 文字描述）至少提供一种。"""
     video_id: Optional[str] = None
-    # 结构化场景（若已由前端/感知生成）
-    scene_id: Optional[str] = None
+    # 结构化场景（若已由前端/感知生成，直接喂入，跳过感知）
+    scene: Optional[dict] = None
+    # 媒体文件路径（真实视频检测，迭代阶段）
+    media_path: Optional[str] = None
     # 文字描述（补录 / 兜底输入）
     text_description: Optional[str] = Field(default="", description="人工文字描述现场要素")
 

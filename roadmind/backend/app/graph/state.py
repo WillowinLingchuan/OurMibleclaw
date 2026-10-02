@@ -20,6 +20,10 @@ class RoadMindState(TypedDict, total=False):
 
     case_id: str
     input_text: str
+    # 直接喂入的场景（外部已生成 scene.json 时使用，跳过感知）
+    input_scene: Optional[Scene]
+    # 视频/照片文件路径（开启真实检测时使用）
+    media_path: Optional[str]
 
     # M1 感知结果
     scene: Optional[Scene]

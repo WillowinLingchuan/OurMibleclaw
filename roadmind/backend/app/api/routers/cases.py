@@ -11,11 +11,16 @@ router = APIRouter(prefix="/api", tags=["cases"])
 
 @router.post("/cases", response_model=TaskInfo)
 async def create_case(case: CaseInput, background: BackgroundTasks):
-    """创建案件并启动多智能体分析。MVP 阶段用文字描述驱动。"""
+    """创建案件并启动多智能体分析。
+
+    输入方式（至少一种）：
+    - case.scene       直接喂入已检测的 scene 字典（跳过感知）
+    - case.media_path  真实视频/照片检测（迭代阶段）
+    - case.text_description  文字描述（兜底）
+    """
     task = task_manager.create()
-    # 组合输入文本（文字描述优先，后续接视频/照片文件上传）
     text = case.text_description or "路口两车发生碰撞，疑似追尾"
-    background.add_task(task_manager.run, task, text)
+    background.add_task(task_manager.run, task, text, case.scene, case.media_path)
     return task
 
 

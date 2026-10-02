@@ -1,11 +1,13 @@
 """
 视频/照片感知服务（M1）。
 
-MVP 阶段：提供低精度占位实现 ——
-- 从文字描述生成 mock 场景（保证无视频也能跑通）；
-- 输入视频时返回低置信 mock 场景并提示可能需补录（真实检测在迭代阶段接入，如 YOLO）。
+- use_mock / 无输入：从文字描述生成 mock 场景（保证无视频也能跑通）；
+- 传入 scene 字典：直接构建 Scene（外部已用 YOLO 检出 scene.json）；
+- 传入媒体文件路径：使用 VideoPerceiver 做真实视频检测（迭代阶段启用）。
 """
 from __future__ import annotations
+
+from pathlib import Path
 
 from app.core.config import settings
 from app.schemas.models import Scene, SceneEvent, Vehicle, TrajectoryPoint
@@ -42,12 +44,39 @@ class PerceptionService:
         )
         return scene
 
-    async def perceive(self, scene_id: str, text: str | None) -> Scene:
-        """入口：MVP 阶段始终返回 mock 场景。迭代阶段在此接入真实视频检测。"""
+    def scene_from_dict(self, data: dict, scene_id: str | None = None) -> Scene:
+        """从外部生成的 scene 字典/JSON 构建 Scene 对象（跳过感知 mock）。"""
+        data = dict(data) or {}
+        data["scene_id"] = scene_id or data.get("scene_id", "case")
+        return Scene(**data)
+
+    def scene_from_json_file(self, path: str, scene_id: str | None = None) -> Scene:
+        import json
+
+        with open(path, encoding="utf-8") as f:
+            data = json.load(f)
+        return self.scene_from_dict(data, scene_id)
+
+    async def perceive(
+        self,
+        scene_id: str,
+        text: str | None,
+        scene_dict: dict | None = None,
+        media_path: str | None = None,
+    ) -> Scene:
+        """入口。优先级：scene_dict(外部scene) > media(真实视频检测) > mock(文字)。"""
+        if scene_dict:
+            return self.scene_from_dict(scene_dict, scene_id)
+        if media_path:
+            # 迭代阶段：真实视频检测（VideoPerceiver）
+            from app.services.detector import VideoPerceiver
+
+            per = VideoPerceiver()
+            scene, _ = per.perceive(media_path, scene_id)
+            return scene
         if settings.use_mock:
             return self.mock_scene_from_text(scene_id, text or "路口两车碰撞，疑似追尾")
-        # TODO(迭代): 真实视频感知（YOLO 抽帧检测 + 轨迹提取）
-        raise NotImplementedError("真实视频感知待实现")
+        raise NotImplementedError("真实感知待配置")
 
 
 perception_service = PerceptionService()
