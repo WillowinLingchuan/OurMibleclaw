@@ -68,10 +68,18 @@ class PerceptionService:
         if scene_dict:
             return self.scene_from_dict(scene_dict, scene_id)
         if media_path:
-            # 迭代阶段：真实视频检测（VideoPerceiver）
+            # 迭代阶段：真实视频检测（VideoPerceiver），参数取自配置
             from app.services.detector import VideoPerceiver
 
-            per = VideoPerceiver()
+            per = VideoPerceiver(
+                model_name=settings.yolo_model,
+                conf=settings.yolo_conf,
+                iou=settings.yolo_iou,
+                imgsz=settings.yolo_imgsz,
+                frame_step=settings.yolo_frame_step,
+                track_activation_threshold=settings.yolo_track_threshold,
+                lost_track_buffer=settings.yolo_lost_buffer,
+            )
             scene, _ = per.perceive(media_path, scene_id)
             return scene
         if settings.use_mock:

@@ -24,6 +24,16 @@ class Settings(BaseSettings):
     # 向量库（迭代阶段）
     chroma_dir: str = "./data/chroma"
 
+    # 视频感知 (M1, YOLO + ByteTrack) 参数
+    yolo_model: str = "yolov8s.pt"
+    yolo_conf: float = 0.3
+    yolo_iou: float = 0.6
+    yolo_imgsz: int = 640
+    yolo_frame_step: int = 1
+    yolo_track_threshold: float = 0.25
+    yolo_lost_buffer: int = 60
+    yolo_tracker: str = "bytetrack.yaml"
+
     # 上传与中间产物目录
     upload_dir: str = "./data/uploads"
     output_dir: str = "./data/outputs"
