@@ -16,9 +16,13 @@ from pathlib import Path
 
 import cv2
 import numpy as np
-from ultralytics import YOLO
 
-from app.schemas.models import Scene, SceneEvent, TrajectoryPoint, Vehicle
+
+def _make_models():
+    """延迟导入 app 与 ultralytics，保证脚本可独立运行（不依赖 app 路径/当前环境）。"""
+    from ultralytics import YOLO
+    from app.schemas.models import Scene, SceneEvent, TrajectoryPoint, Vehicle
+    return YOLO, Scene, SceneEvent, TrajectoryPoint, Vehicle
 
 
 def main(
