@@ -12,18 +12,12 @@ from pathlib import Path
 
 import cv2
 import numpy as np
+from typing import TYPE_CHECKING
 
-from app.schemas.models import Scene, SceneEvent, TrajectoryPoint, Vehicle
+from app.collision import detect_events_from_tracks
 
-# YOLOv8 COCO 类别 → RoadMind 目标类型
-_CLS_TO_TYPE = {
-    0: "pedestrian",
-    1: "bicycle",
-    2: "car",
-    3: "motorcycle",
-    5: "bus",
-    7: "truck",
-}
+if TYPE_CHECKING:
+    from app.schemas.models import Scene, TrajectoryPoint, Vehicle
 
 
 class VideoPerceiver:
@@ -60,8 +54,9 @@ class VideoPerceiver:
             frame_rate=fps,
         )
 
-    def perceive(self, video_path: str, scene_id: str) -> tuple[Scene, list[tuple[float, np.ndarray]]]:
+    def perceive(self, video_path: str, scene_id: str) -> "tuple[Scene, list[tuple[float, np.ndarray]]]":
         """返回 (Scene, [(时间, 关键帧图), ...])。"""
+        from app.schemas.models import Scene, TrajectoryPoint, Vehicle  # noqa: F401
         from supervision import Detections
 
         cap = cv2.VideoCapture(video_path)
@@ -124,14 +119,29 @@ class VideoPerceiver:
             vehicles.append(Vehicle(id=tid, type=info["type"],
                                     trajectory=pts, max_speed_kmh=round(max_speed, 1)))
 
+        # D3：碰撞事件识别（基于轨迹后处理）
+        events = self._detect_collision_events(tracks)
+
         scene = Scene(
             scene_id=scene_id,
             source="video",
             vehicles=vehicles,
-            events=[],  # 事件/碰撞识别留待 D3 细化
+            events=events,
             confidence=0.5,  # 低精度 MVP
         )
         return scene, keyframes
+
+    @staticmethod
+    def _detect_collision_events(self, tracks: dict[int, dict]) -> "list":
+        """碰撞事件识别（基于轨迹后处理）。"""
+        from app.schemas.models import SceneEvent  # noqa: F401
+
+        raw = detect_events_from_tracks({
+            tid: {"points": [{"t": p.t, "x": p.x, "y": p.y, "w": p.w, "h": p.h}
+                             for p in info["points"]]}
+            for tid, info in tracks.items()
+        })
+        return [SceneEvent(**e) for e in raw]
 
     def save_keyframes(self, keyframes: list[tuple[float, np.ndarray]], out_dir: Path) -> list[str]:
         """保存关键帧，返回文件路径列表。"""
