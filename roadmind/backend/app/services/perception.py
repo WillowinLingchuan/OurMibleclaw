@@ -68,20 +68,16 @@ class PerceptionService:
         if scene_dict:
             return self.scene_from_dict(scene_dict, scene_id)
         if media_path:
-            # 迭代阶段：真实视频检测（VideoPerceiver），参数取自配置
-            from app.services.detector import VideoPerceiver
+            # 真实视频检测（ultralytics 原生 track，与实测一致）
+            from app.services.video_tracker import VideoTracker
 
-            per = VideoPerceiver(
+            tracker = VideoTracker(
                 model_name=settings.yolo_model,
                 conf=settings.yolo_conf,
                 iou=settings.yolo_iou,
                 imgsz=settings.yolo_imgsz,
-                frame_step=settings.yolo_frame_step,
-                track_activation_threshold=settings.yolo_track_threshold,
-                lost_track_buffer=settings.yolo_lost_buffer,
             )
-            scene, _ = per.perceive(media_path, scene_id)
-            return scene
+            return self.scene_from_dict(tracker.perceive(media_path), scene_id)
         if settings.use_mock:
             return self.mock_scene_from_text(scene_id, text or "路口两车碰撞，疑似追尾")
         raise NotImplementedError("真实感知待配置")

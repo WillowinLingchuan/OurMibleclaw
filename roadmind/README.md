@@ -66,9 +66,20 @@ python scripts/verify_chain_mock.py
 
 | 脚本 | 作用 |
 |------|------|
+| `scripts/full_pipeline.py` | **全链路**：视频→检测→scene→判责→应急（推荐，一条命令跑通） |
 | `scripts/convert_to_scene.py` | 视频 → scene.json（去重 + 轨迹 + 关键帧） |
 | `scripts/detect_count.py` | 快捷去重计数调试 |
-| `scripts/byte_track_demo.py` | YOLO + ByteTrack 追踪 demo |
+| `scripts/test_event_detect.py` | 碰撞事件识别逻辑验证 |
+| `scripts/test_judge_scene.py` | 场景数据判责链路验证 |
+
+### 全链路一键演示（需 ultralytics 环境）
+
+```bash
+cd roadmind/backend
+python scripts/full_pipeline.py --source test2.mp4 --model yolov8s.pt \
+    --conf 0.3 --iou 0.6 --out ./data/outputs
+```
+输出：`scene.json` + `judgment.json` + `response.json`（责任判定 + 应急方案）。
 
 ## 设计说明
 
