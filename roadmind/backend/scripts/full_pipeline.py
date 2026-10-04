@@ -20,9 +20,6 @@ import json
 from collections import Counter
 from pathlib import Path
 
-import cv2
-from ultralytics import YOLO
-
 # COCO 类别 -> Scene.type
 _CLS_TO_SCENE_TYPE = {
     "person": "pedestrian", "bicycle": "bicycle", "car": "car",
@@ -146,6 +143,8 @@ def main():
     a = ap.parse_args()
 
     print("=== 1. 检测+追踪 ===")
+    import cv2
+    from ultralytics import YOLO
     model = YOLO(a.model)
     cap = cv2.VideoCapture(a.source)
     fps = cap.get(cv2.CAP_PROP_FPS) or 30.0
