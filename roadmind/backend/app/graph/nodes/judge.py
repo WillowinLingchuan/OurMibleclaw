@@ -5,15 +5,18 @@ from app.core.config import settings
 from app.graph.state import State
 from app.schemas.models import Judgment, Responsibility
 from app.services.llm import llm_service
+from app.services.scene_summary import build_scene_summary
 
 
 async def judge_node(state: State) -> State:
     state["step"] = "judging"
     text = state.get("input_text", "")
     scene = state.get("scene")
-    scene_text = text or (f"{scene.road} {' '.join(e.type for e in scene.events)}" if scene else "")
+    # 用场景摘要（基于检测数据）生成判责输入，回退到用户文字
+    scene_summary = build_scene_summary(scene.model_dump() if scene else None, text)
+    scene_dict = scene.model_dump() if scene else None
 
-    raw = await llm_service.judge(scene_text, state.get("retrieved"))
+    raw = await llm_service.judge(scene_summary, state.get("retrieved"), scene_dict)
     state["judgment"] = Judgment(
         scene_id=state.get("case_id", "case"),
         responsibility=Responsibility(**raw["responsibility"]),
